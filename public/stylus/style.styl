@@ -1,0 +1,68 @@
+@import 'normalize.styl'
+@import 'nib/vendor'
+
+vendor-prefixes= o moz webkit ms
+
+$azul1=#1CABCF
+$azul2=#17809B
+$azul3=#0C5061
+$azul4=#1A6574
+
+
+ul
+	margin 0
+	padding 0
+a
+	color inherit
+	text-decoration none
+	
+#menu 
+	background $azul1
+	color white
+	height 50px
+	position relative
+	z-index 100
+	ul 
+		margin 0
+		padding 0
+		width 100%
+		li
+			transition ease-out all .2s
+			display inline-block
+			vertical-align top
+			width 125px
+			padding 1em 0
+			text-align center
+			height 100%
+			&:hover
+				cursor pointer
+				background $azul2
+			&:hover>ul
+				display block
+			ul
+				background $azul2
+				position relative
+				top 1em
+				display none
+				width 200%
+				li 
+					border-bottom 1px solid $azul4
+					position relative
+					text-align left
+					width 100%
+					&:hover
+						background $azul3
+					span
+						margin-left .5em
+					ul
+						background $azul3
+						display none
+						position absolute
+						top 0
+						width auto
+						left 100%
+						li 
+							background $azul4
+							a
+								margin 0 .5em
+							
