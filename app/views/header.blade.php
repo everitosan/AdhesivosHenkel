@@ -17,26 +17,26 @@
 			<ul>
 				<li><span>Ventas</span>
 					<ul>
-						<a href="{{ route('ventas',['nueva_venta']) }}"><li>Nuevo</li></a>
-						<a href="{{ route('ventas',['buscar_venta']) }}"><li>Buscar/Reporte</li></a>
+						<li><a href="{{ route('ventas',['ventas','nueva_venta']) }}">Nuevo</a></li>
+						<li><a href="{{ route('ventas',['ventas','buscar_venta']) }}">Buscar/Reporte</a></li>
 					</ul>
 				</li>
 				<li><span>Compras</span>
 					<ul>
-						<li><a href="#">Nuevo</a></li>
-						<li><a href="#">Buscar/Reporte</a></li>
+						<li><a href="{{ route('compras',['ventas','nueva_compra']) }}">Nuevo</a></li>
+						<li><a href="{{ route('compras',['ventas','buscar_compra']) }}">Buscar/Reporte</a></li>
 					</ul>
 				</li>
 				<li><span>Clientes</span>
 					<ul>
-						<li><a href="#">Nuevo</a></li>
-						<li><a href="#">Buscar/Reporte</a></li>
+						<li><a href="{{ route('clientes',['ventas','nuevo_cliente']) }}">Nuevo</a></li>
+						<li><a href="{{ route('clientes',['ventas','buscar_cliente']) }}">Buscar/Reporte</a></li>
 					</ul>
 				</li>
 				<li><span>Proveedores</span>
 					<ul>
-						<li><a href="#">Nuevo</a></li>
-						<li><a href="#">Buscar/Reporte</a></li>
+						<li><a href="{{ route('proveedores',['ventas','nuevo_proveedor']) }}">Nuevo</a></li>
+						<li><a href="{{ route('proveedores',['ventas','buscar_proveedor']) }}">Buscar/Reporte</a></li>
 					</ul>
 				</li>
 			</ul>

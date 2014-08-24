@@ -15,4 +15,10 @@ class BaseController extends Controller {
 		}
 	}
 
+	public function index($cat, $action)
+	{
+	
+		return View::make($cat.'/'.$action);
+	}
+
 }

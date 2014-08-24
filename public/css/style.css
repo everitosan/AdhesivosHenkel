@@ -43,7 +43,8 @@ body{text-align:center}
 .home table{display:block;margin:0 auto;width:80%;}
 .home table tr th{background:#e5ebee;padding:0 1em;border:1px solid #d4dfe4}
 .home table tr td{border:1px solid #d4dfe4}
-.venta .title{background:#0c5061;color:#fff}
+.venta .title,.compra .title,.cliente .title{background:#0c5061;}
+.venta .title h3,.compra .title h3,.cliente .title h3{color:#fff}
 ul{margin:0;padding:0}
 a{color:inherit;text-decoration:none}
 #menu{border-bottom:1px solid #1cabcf;border-top:1px solid #1cabcf;background:#1cabcf;color:#d4e3ec;height:60px;position:relative;z-index:100;}

@@ -15,6 +15,12 @@ Route::get('/', ['as'=>'login', 'uses'=>"HomeController@login"]);
 //inicio
 Route::get('inicio', ['as'=>'inicio', 'uses'=>"HomeController@inicio"]);
 //Ventas
-Route::get('ventas/{cat}', ['as'=>'ventas', 'uses'=>"VentasController@index"]);
+Route::get('{cat}/{action}', ['as'=>'ventas', 'uses'=>"HomeController@index"]);
+//compras
+Route::get('{cat}/{action}', ['as'=>'compras', 'uses'=>"HomeController@index"]);
+//clientes
+Route::get('{cat}/{action}', ['as'=>'clientes', 'uses'=>"HomeController@index"]);
+//proveedores
+Route::get('{cat}/{action}', ['as'=>'proveedores', 'uses'=>"HomeController@index"]);
 
 
