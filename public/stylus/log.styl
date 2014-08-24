@@ -1,0 +1,32 @@
+@import 'normalize.styl'
+@import 'nib/vendor'
+
+vendor-prefixes= o moz webkit ms
+
+body
+	text-align center
+	background #E2E8E9
+	form
+		background #fff
+		padding 1em
+	.half
+		display inline-block
+		vertical-align top
+		width 45%
+		div 
+			height 40px
+			label
+				width 50%
+			input
+				width 50%
+				&[type="text"],&[type="password"]
+					background #C2CECF
+					float right
+					border none
+				&[type="submit"]
+					background #C2CECF
+					color #fff
+					text-shadow: 0px 1px 0 #232a2b;
+					border none
+					box-shadow 0 5px 0 #232A2B
+					padding .5em

@@ -12,4 +12,9 @@
 */
 
 Route::get('/', ['as'=>'login', 'uses'=>"HomeController@login"]);
+//inicio
+Route::get('inicio', ['as'=>'inicio', 'uses'=>"HomeController@inicio"]);
+//Ventas
+Route::get('ventas/{cat}', ['as'=>'ventas', 'uses'=>"VentasController@index"]);
+
 

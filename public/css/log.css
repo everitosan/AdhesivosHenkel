@@ -38,27 +38,11 @@ textarea{overflow:auto}
 optgroup{font-weight:bold}
 table{border-collapse:collapse;border-spacing:0}
 td,th{padding:0}
-body{text-align:center}
-.home h3{color:#f15454}
-.home table{display:block;margin:0 auto;width:80%;}
-.home table tr th{background:#e5ebee;padding:0 1em;border:1px solid #d4dfe4}
-.home table tr td{border:1px solid #d4dfe4}
-.venta .title{background:#0c5061;color:#fff}
-ul{margin:0;padding:0}
-a{color:inherit;text-decoration:none}
-#menu{border-bottom:1px solid #1cabcf;border-top:1px solid #1cabcf;background:#1cabcf;color:#d4e3ec;height:60px;position:relative;z-index:100;}
-#menu ul{margin:0;padding:0;display:inline-block;vertical-align:top;}
-#menu ul li{-o-transition:ease-out all 0.2s;-moz-transition:ease-out all 0.2s;-webkit-transition:ease-out all 0.2s;-ms-transition:ease-out all 0.2s;display:inline-block;vertical-align:top;width:125px;padding:1em 0;text-align:center;height:100%;}
-#menu ul li:hover{cursor:pointer;background:#17809b;color:#fff}
-#menu ul li:hover>ul{display:block}
-#menu ul li ul{background:#17809b;position:relative;top:1em;display:none;width:200%;}
-#menu ul li ul li{border-bottom:1px solid #1a6574;position:relative;text-align:left;width:100%;}
-#menu ul li ul li:hover{background:#0c5061}
-#menu ul li ul li span{margin-left:.5em}
-#menu ul li ul li ul{background:#0c5061;display:none;position:absolute;top:0;width:auto;left:100%;}
-#menu ul li ul li ul li{background:#1a6574;text-align:center;}
-#menu ul li ul li ul li a{margin:0 .5em}
-#menu div{display:inline-block;vertical-align:top;background:#17809b;height:100%;}
-#menu div p{margin:0 1em;text-align:center;height:50%}
-#menu div button{border:none;color:#fff;background:#f15454;height:100%;width:100%}
-#menu .opc{float:right}
+body{text-align:center;background:#e2e8e9;}
+body form{background:#fff;padding:1em}
+body .half{display:inline-block;vertical-align:top;width:45%;}
+body .half div{height:40px;}
+body .half div label{width:50%}
+body .half div input{width:50%;}
+body .half div input[type="text"],body .half div input[type="password"]{background:#c2cecf;float:right;border:none}
+body .half div input[type="submit"]{background:#c2cecf;color:#fff;text-shadow:0 1px 0 #232a2b;border:none;-webkit-box-shadow:0 5px 0 #232a2b;padding:.5em}

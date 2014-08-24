@@ -3,7 +3,8 @@
 <head>
    <meta charset='utf-8'>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href=" {{asset('css/foundation.css')}} " />
+   <link rel="stylesheet" href=" {{asset('css/style.css') }} ">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Adhesivoshenkel</title>
 </head>
@@ -11,13 +12,13 @@
 
 	<nav id="menu">
 	<ul>
-		<li><span>Inicio</span></li>
+		<li><span> <a href="{{ route('inicio') }} "> Inicio </a> </span></li>
 		<li><span>Ventas/Compras</span>
 			<ul>
 				<li><span>Ventas</span>
 					<ul>
-						<li><a href="#">Nuevo</a></li>
-						<li><a href="#">Buscar/Reporte</a></li>
+						<a href="{{ route('ventas',['nueva_venta']) }}"><li>Nuevo</li></a>
+						<a href="{{ route('ventas',['buscar_venta']) }}"><li>Buscar/Reporte</li></a>
 					</ul>
 				</li>
 				<li><span>Compras</span>
@@ -127,6 +128,27 @@
 			</ul>
 		</li>
 	</ul>
+
+	<div class="opc">
+	<div class="moneda">
+		<p>Precio Dolar</p>
+		<p> fecha </p>
+	</div>
+
+	<div class="print">
+		<img src=" {{asset ('img/printer_text.png') }} " alt="print">
+	</div>
+
+	<div>
+		<p>Bienvenido</p>
+		<p> Usuario </p>
+	</div>
+
+	<div>
+		<button> Salir </button>
+	</div>
+	</div>
+
 	</nav>
 
 

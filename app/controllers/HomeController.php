@@ -26,4 +26,9 @@ class HomeController extends BaseController {
 		return View::make('login');
 	}
 
+	public function inicio()
+	{
+		return View::make('inicio');
+	}
+
 }

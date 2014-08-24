@@ -1,12 +1,10 @@
 @import 'normalize.styl'
+@import 'contenidos.styl'
+@import 'color.styl'
 @import 'nib/vendor'
 
 vendor-prefixes= o moz webkit ms
 
-$azul1=#1CABCF
-$azul2=#17809B
-$azul3=#0C5061
-$azul4=#1A6574
 
 
 ul
@@ -17,15 +15,18 @@ a
 	text-decoration none
 	
 #menu 
+	border-bottom 1px solid $azul1
+	border-top 1px solid $azul1
 	background $azul1
-	color white
-	height 50px
+	color #D4E3EC
+	height 60px
 	position relative
 	z-index 100
 	ul 
 		margin 0
 		padding 0
-		width 100%
+		display inline-block
+		vertical-align top
 		li
 			transition ease-out all .2s
 			display inline-block
@@ -37,6 +38,7 @@ a
 			&:hover
 				cursor pointer
 				background $azul2
+				color #fff
 			&:hover>ul
 				display block
 			ul
@@ -63,6 +65,24 @@ a
 						left 100%
 						li 
 							background $azul4
+							text-align center
 							a
 								margin 0 .5em
+	div
+		display inline-block
+		vertical-align top
+		background $azul2
+		height 100%
+		p
+			margin 0 1em
+			text-align center
+			height 50%
+		button
+			border none
+			color $blanco
+			background $red
+			height 100%
+			width 100%
+	.opc
+		float right
 							
