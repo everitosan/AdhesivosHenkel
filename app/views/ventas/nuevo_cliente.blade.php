@@ -71,7 +71,7 @@
 					<input type="text">
 				</div>
 			</div>
-			<div class="row">
+			<div class="row boton">
 				<div class="medium-6 columns">
 					<button>Agregar Contácto</button>
 				</div>

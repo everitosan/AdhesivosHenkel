@@ -106,7 +106,7 @@
 				<input type="text" readonly>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row boton">
 			<div class="medium-12 columns">
 				<button>Agregar</button>
 			</div>
