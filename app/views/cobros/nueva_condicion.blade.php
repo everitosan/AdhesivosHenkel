@@ -2,11 +2,11 @@
 @section('content')
 	<section class="cobro">
 		<article>
-			<h1>Agregar nueva forma de pago</h1>
+			<h1>Agregar nueva condición de pago</h1>
 
 			<div class="row title">
 				<div class="medium-6 columns">
-					<h3>Información sobre la forma de pago</h3>
+					<h3>Información sobre la condición de pago</h3>
 				</div>
 				<div class="medium-6 columns">
 					<button>Limpiar</button>

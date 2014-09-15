@@ -15,11 +15,11 @@
 			<div class="row">
 				<div class="medium-6 columns">
 					<label for="">Fecha</label>
-					<input type="date">
+					<input class="date" type="date">
 				</div>
 				<div class="medium-6 columns">
 					<label for="">Hora</label>
-					<input type="time">
+					<input class="time" type="time">
 				</div>
 			</div>
 			<div class="row">

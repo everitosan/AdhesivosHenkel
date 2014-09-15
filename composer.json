@@ -7,13 +7,17 @@
 		"laravel/framework": "4.2.*"
 	},
 	"require-dev": {
-    	"way/generators": "2.*"
+    	"way/generators": "2.*",
+    	"fzaninotto/faker": "v1.3.0",
+    	"barryvdh/laravel-debugbar":"1.*"
 	},
 	"autoload": {
+		"psr-4":{
+			"Adhesivos\\":"app/Adhesivos"
+			},
 		"classmap": [
 			"app/commands",
 			"app/controllers",
-			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"

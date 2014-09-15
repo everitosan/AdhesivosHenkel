@@ -14,6 +14,9 @@
 					<label for="">Cliente</label>
 					<select name="" id="">
 						<option value=""></option>
+						@foreach($clientes as $cliente)
+							<option value="{{ $cliente->id}}">{{ $cliente->razonsocial}}</option>
+						@endforeach
 					</select>
 				</div>
 			</div>

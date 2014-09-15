@@ -33,6 +33,9 @@
 					<label for="">Rubro</label>
 					<select name="" id="">
 						<option value=""></option>
+						@foreach($Rubros as $rubro)
+							<option value="{{ $rubro->id }}">{{ $rubro->nombre }}</option>
+						@endforeach
 					</select>
 				</div>
 				<div class="medium-6 columns">
@@ -56,6 +59,9 @@
 					<label for="">Autorizó</label>
 					<select name="" id="">
 						<option value=""></option>
+						@foreach($Usuarios as $usuario)
+							<option value="{{ $usuario->id }}">{{ $usuario->nombre }}</option>
+						@endforeach
 					</select>
 				</div>
 			</div>

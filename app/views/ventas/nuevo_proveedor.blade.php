@@ -3,6 +3,9 @@
 	<section class="compra">
 		<article>
 			<h1>Nuevo Proveedor</h1>
+			
+			{{Form::open(['route'=>'setproveedores','method'=>'POST','role'=>'form','novalidate']) }}
+
 			<div class="row title">
 				<div class="medium-6 columns">
 					<h3>Datos del proveedor</h3>
@@ -13,12 +16,11 @@
 			</div>
 			<div class="row">
 				<div class="medium-4 columns">
-					<label for="">RFC</label>
-					<input type="text">
+					{{ Field::input('text', 'rfc'); }}
 				</div>
 				<div class="medium-8 columns">
 					<label for="">Razón Social</label>
-					<input type="text">
+					<input name="razonsocial" type="text">
 				</div>
 			</div>
 			<div class="row title">
@@ -28,58 +30,104 @@
 			</div>
 			<div class="row">
 				<div class="medium-4 columns">
-					<label for="">Calle</label>
-					<input type="text">
+					{{ Field::input('text', 'calle'); }}
+					
 				</div>
 				<div class="medium-4 columns">
 					<label for="">No. Ext</label>
-					<input type="text">
+					<input name="noexterior" type="text">
 				</div>
 				<div class="medium-4 columns">
 					<label for="">No. Int</label>
-					<input type="text">
+					<input type="text" name="nointerior">
 				</div>
 			</div>
 			<div class="row">
 				<div class="medium-4 columns">
-					<label for="">Colonia</label>
-					<input type="text">
+					{{ Field::input('text', 'colonia'); }}
+					
 				</div>
 				<div class="medium-4 columns">
 					<label for="">Delegación o Municipio</label>
-					<input type="text">
+					<input type="text" name="delegacionmunicipio">
 				</div>
 				<div class="medium-4 columns">
-					<label for="">Ciudad</label>
-					<input type="text">
+					{{ Field::input('text', 'ciudad'); }}
+					
 				</div>
 			</div>
 			<div class="row">
 				<div class="medium-6 columns">
-					<label for="">Estado</label>
-					<input type="text">
+					{{ Field::input('text', 'estado'); }}
+					
 				</div>
 				<div class="medium-6 columns">
 					<label for="">C.P.</label>
-					<input type="text">
+					<input type="text" name="cp" >
 				</div>
 			</div>
 			<div class="row">
 				<div class="medium-12 columns">
 					<label for="">Referencias de ubicación</label>
-					<input type="text">
+					<input type="text" name="referenciasubicacion">
 				</div>
 			</div>
+
+			<div class="row">
+				<dl class="accordion" data-accordion>
+				  <dd class="accordion-navigation">
+				    <a href="#panel1">Agregar Contácto</a>
+				    <div id="panel1" class="content">
+				    	<div class="row">
+				      		<div class="medium-4 columns">
+								{{ Field::input('text', 'nombre'); }}	
+				      		</div>
+				      		<div class="medium-4 columns">
+				      			<label for="">Apellido Paterno</label>
+				      			<input type="text" name="apppaterno">
+				      		</div>
+				      		<div class="medium-4 columns">
+				      			<label for="">Apellido Materno</label>
+				      			<input type="text" name="appmaterno">
+				      		</div>
+				    	</div>
+				    	<div class="row">
+							<div class="medium-6 columns">
+								<label for="">Género</label>
+								<select name="genero" id="">
+									<option value=""></option>
+									<option value="masculino">Masculino</option>
+									<option value="femenino">Femenino</option>
+								</select>
+							</div>
+							<div class="medium-6 columns">
+								<label for="">Correo Electrónico</label>
+								<input type="email" name="email">
+							</div>
+				    	</div>
+				    	<div class="row">
+							<div class="medium-4 columns">
+								<label for="">Teléfonfo</label>
+								<input type="text" name="telefono" ></div>
+							<div class="medium-4 columns">
+								<label for="">Celular</label>
+								<input type="text" name="celular" ></div>
+							<div class="medium-4 columns">
+								<label for="">Nextel</label>
+								<input type="text" name="nextel" ></div>
+				    	</div>
+				    </div>
+				  </dd>
+				</dl>
+			</div>
+			
 			<div class="row boton">
-				<div class="medium-6 columns">
-					<button>Agregar Contácto</button>
-				</div>
-				<div class="medium-6 columns">
-					<button>Agregar Nuevo</button>
+				<div class="medium-12 columns">
+					<input class="boton" type="submit" value="Agregar Nuevo">
 				</div>
 			</div>
 			
-			
+			{{Form::close()}}
 		</article>
 	</section>	
 @stop

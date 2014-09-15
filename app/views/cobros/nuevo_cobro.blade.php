@@ -17,6 +17,9 @@
 					<label for="">Tipo</label>
 					<select name="" id="">
 						<option value=""></option>
+						<option value="Factura-e">Factura-e</option>
+						<option value="Factura">Factura</option>
+						<option value="Nota">Nota</option>
 					</select>
 				</div>
 				<div class="medium-4 columns">

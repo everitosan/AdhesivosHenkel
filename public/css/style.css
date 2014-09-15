@@ -45,11 +45,14 @@ body{text-align:center}
 .home table tr td{border:1px solid #d4dfe4}
 .venta .title,.compra .title,.cliente .title,.cobro .title{background:#0c5061;}
 .venta .title h3,.compra .title h3,.cliente .title h3,.cobro .title h3{color:#fff}
-.venta .boton,.compra .boton,.cliente .boton,.cobro .boton{background:#1cabcf;color:#fff}
+.venta .boton,.compra .boton,.cliente .boton,.cobro .boton{background:#1cabcf;color:#fff;border:none;font-size:1.1em;padding:.4em 0}
+.venta .accordion-navigation a,.compra .accordion-navigation a,.cliente .accordion-navigation a,.cobro .accordion-navigation a{background:#17809b;color:#fff}
+.venta .accordion-navigation a:hover,.compra .accordion-navigation a:hover,.cliente .accordion-navigation a:hover,.cobro .accordion-navigation a:hover{background:#fff;color:#17809b;outline:1px solid #1cabcf}
+.error{color:#f15454}
 ul{margin:0;padding:0}
 a{color:inherit;text-decoration:none}
-#menu{border-bottom:1px solid #1cabcf;border-top:1px solid #1cabcf;background:#1cabcf;color:#d4e3ec;height:60px;position:relative;z-index:100;}
-#menu ul{margin:0;padding:0;display:inline-block;vertical-align:top;}
+#menu{border-bottom:1px solid #1cabcf;border-top:1px solid #1cabcf;background:#1cabcf;color:#d4e3ec;height:60px;position:relative;position:fixed;top:0;left:0;width:100%;z-index:100;}
+#menu ul{margin:0;float:left;padding:0;display:inline-block;vertical-align:top;}
 #menu ul li{-o-transition:ease-out all 0.2s;-moz-transition:ease-out all 0.2s;-webkit-transition:ease-out all 0.2s;-ms-transition:ease-out all 0.2s;display:inline-block;vertical-align:top;width:125px;padding:1em 0;text-align:center;height:100%;}
 #menu ul li:hover{cursor:pointer;background:#17809b;color:#fff}
 #menu ul li:hover>ul{display:block}
@@ -64,3 +67,5 @@ a{color:inherit;text-decoration:none}
 #menu div p{margin:0 1em;text-align:center;height:50%}
 #menu div button{border:none;color:#fff;background:#f15454;height:100%;width:100%}
 #menu .opc{float:right}
+input{text-align:center}
+section{position:relative;top:4em}

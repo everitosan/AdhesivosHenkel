@@ -15,11 +15,21 @@
 			<div class="row">
 				<div class="medium-6 columns">
 					<label for="">Clave</label>
-					<input type="text">
+					<select name="" id="">
+						<option value=""></option>
+						@foreach($Productos as $producto)
+							<option value="{{$producto->clave}}">{{$producto->clave}}</option>
+						@endforeach
+					</select>
 				</div>
 				<div class="medium-6 columns">
 					<label for="">Nombre</label>
-					<input type="text">
+					<select name="" id="">
+						<option value=""></option>
+						@foreach($Productos as $producto)
+							<option value="{{$producto->nombre}}">{{$producto->nombre}}</option>
+						@endforeach
+					</select>
 				</div>
 			</div>
 			<div class="row">
@@ -31,6 +41,9 @@
 					<label for="">Medida</label>
 					<select name="" id="">
 						<option value=""></option>
+						<option value="Peso">Peso</option>
+						<option value="Volumen">Volumen</option>
+						<option value="Pieza">Pieza</option>
 					</select>
 				</div>
 			</div>

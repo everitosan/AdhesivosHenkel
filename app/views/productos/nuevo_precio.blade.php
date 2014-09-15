@@ -3,6 +3,7 @@
 	<section class="compra">
 		<article>
 			<h1>Nuevo Precio Producto</h1>
+			{{Form::open(['route'=>'setprecioproducto','method'=>'POST','role'=>'form','novalidate']) }}
 			
 			<div class="row title">
 				<div class="medium-6 columns">
@@ -15,40 +16,46 @@
 			<div class="row">
 				<div class="medium-6 columns">
 					<label for="">Producto</label>
-					<select name="" id="">
+					<select name="producto" id="">
 						<option value=""></option>
+						@foreach($productos as $producto)
+							<option value="{{ $producto->id}}">{{ $producto->nombre}}</option>
+						@endforeach
 					</select>
 				</div>
 				<div class="medium-6 columns">
 					<label for="">Fecha en que cambió el precio</label>
-					<input type="date">
+					<input name="fecha" type="date">
 				</div>
 			</div>
 			<div class="row">
 				<div class="medium-6 columns">
 					<label for="">Divisa del precio de compra</label>
-					<select name="" id="">
+					<select name="divisa" id="">
 						<option value=""></option>
+						<option value="pesos">pesos</option>
+						<option value="dlls">dlls</option>
 					</select>
 				</div>
 				<div class="medium-6 columns">
 					<label for="">Precio de compra</label>
-					<input type="text" placeholder="$">
+					<input name="preciocompra" type="text" placeholder="$">
 				</div>
 			</div>
 			<div class="row">
 				<div class="medium-12 columns">
 					<label for="">Precio de venta (pesos)</label>
-					<input type="text" placeholder="$">
+					<input name="precioventa" type="text" placeholder="$">
+					{{ $errors->first('email', '<p class="error" >:message</p>') }}
 				</div>
 			</div>
 			<div class="row boton">
 				<div class="medium-12 columns">
-					<button>Agregar</button>
+					<input class="boton" type="submit" value="Agregar Nuevo">
 				</div>
 			</div>
 
-
+		{{Form::close()}}
 		</article>
 	</section>	
 @stop

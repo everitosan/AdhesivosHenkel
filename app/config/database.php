@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'Adhesivos',
+			'database'  => 'Adhesivos_new',
 			'username'  => 'root',
 			'password'  => 'root',
 			'charset'   => 'utf8',

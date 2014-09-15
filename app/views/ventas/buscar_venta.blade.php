@@ -18,6 +18,7 @@
 			<label for="">Tipo</label>
 			<select name="" id="">
 				<option value=""></option>
+				<option value="Nota">Nota</option>
 			</select>
 		</div>
 		<div class="medium-4  columns">
@@ -48,6 +49,9 @@
 			<label for="">Cliente</label>
 			<select name="" id="">
 				<option value=""></option>
+				@foreach($clientes as $cliente)
+					<option value="{{ $cliente->id }}">{{ $cliente->razonsocial }}</option>
+				@endforeach
 			</select>
 		</div>
 		<div class="medium-6  columns">
@@ -60,12 +64,18 @@
 			<label for="">Forma de pago</label>
 			<select name="" id="">
 				<option value=""></option>
+				@foreach($FormaPago as $forma)
+					<option value="{{ $forma->id }}">{{ $forma->nombre }}</option>
+				@endforeach
 			</select>
 		</div>
 		<div class="medium-6  columns">
 			<label for="">Condición de pago</label>
 			<select name="" id="">
 				<option value=""></option>
+				@foreach($CondicionPago as $condicion)
+					<option value="{{ $condicion->id}}">{{ $condicion->nombre}}</option>
+				@endforeach
 			</select>
 		</div>
 	</div>
@@ -74,6 +84,9 @@
 			<label for="">Vendedor</label>
 			<select name="" id="">
 				<option value=""></option>
+				@foreach($vendedor as $usuario)
+					<option value="{{ $usuario->id}}">{{ $usuario->nombre}}</option>
+				@endforeach
 			</select>
 		</div>
 	</div>
@@ -142,12 +155,17 @@
 			<label for="">Producto vendido</label>
 			<select name="" id="">
 				<option value=""></option>
+				@foreach($productos as $producto)
+					<option value="{{ $producto->id}}">{{ $producto->nombre}}</option>
+				@endforeach
 			</select>
 		</div>
 		<div class="medium-6  columns">
 			<label for="">Estado cancelación</label>
 			<select name="" id="">
 				<option value=""></option>
+				<option value="0">Sin cancelar</option>
+				<option value="1">Cancelado</option>
 			</select>
 		</div>
 	</div>

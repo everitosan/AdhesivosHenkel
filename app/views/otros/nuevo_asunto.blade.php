@@ -25,21 +25,28 @@
 			</div>
 			<div class="row">
 				<div class="medium-6 columns">
-					<label for=""></label>
+					<label for="">Estado</label>
 					<select name="" id="">
 						<option value=""></option>
+						<option value="Activo">Activo</option>
+						<option value="Finalizado">Finalizado</option>
+						<option value="Suspendido">Suspendido</option>
+						<option value="Cancelado">Cancelado</option>
 					</select>
 				</div>
 				<div class="medium-6 columns">
-					<label for=""></label>
+					<label for="">Respuesta</label>
 					<input type="text">
 				</div>
 			</div>
 			<div class="row">
 				<div class="medium-12 columns">
-					<label for=""></label>
+					<label for="">Responsable</label>
 					<select name="" id="">
 						<option value=""></option>
+						@foreach($Usuarios as $usuario)
+							<option value=" {{$usuario->id}} "> {{$usuario->nombre}} </option>
+						@endforeach
 					</select>
 				</div>
 			</div>

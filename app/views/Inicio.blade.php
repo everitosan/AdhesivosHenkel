@@ -10,7 +10,7 @@
 		<table>
 			<tr>
 				<th>Folio</th>
-				<th>RFC cliente</th>
+				<th>RFC	</th>
 				<th>Fecha Venta</th>
 				<th>Fecha Vencimiento</th>
 				<th>Fecha último cobro</th>
@@ -20,18 +20,20 @@
 				<th>Cobrar</th>
 				<th>Pendientes</th>
 			</tr>
+			@foreach( $ventas as $venta )
 			<tr>
-				<td>datos</td>
-				<td>datos</td>
-				<td>datos</td>
-				<td>datos</td>
-				<td>datos</td>
-				<td>datos</td>
-				<td>datos</td>
-				<td>datos</td>
-				<td>datos</td>
-				<td>datos</td>
+				<td> {{ $venta->folio }} </td>
+				<td> {{ $venta->client->rfc }} </td>
+				<td> {{ $venta->fecha }} </td>
+				<td> {{ $venta->fechavencimiento}} </td>
+				<td> {{ $venta->fechaultimocobro}} </td>
+				<td> {{ $venta->total}} </td>
+				<td> {{ $venta->totalcobrado}} </td>
+				<td>  </td>
+				<td> <a href="{{ route('nuevo_cobro') }}" > Cobrar </td>
+				<td> <a href="{{ route('nuevo_cobro') }}" > Pendientes </td>
 			</tr>
+			@endforeach
 
 		</table>
 

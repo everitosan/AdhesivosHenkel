@@ -17,6 +17,9 @@
 					<label for="">Presentación</label>
 					<select name="" id="">
 						<option value=""></option>
+						@foreach($presentaciones as $presentacion)
+							<option value="{{ $presentacion->id }}">{{ $presentacion->nombre }}</option>
+						@endforeach
 					</select>
 				</div>
 			</div>
@@ -35,6 +38,8 @@
 					<label for="">Divisa de compra</label>
 					<select name="" id="">
 						<option value=""></option>
+						<option value="pesos">pesos</option>
+						<option value="dlls">dlls</option>
 					</select>
 				</div>
 				<div class="medium-6 columns">
