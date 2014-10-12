@@ -4,6 +4,13 @@
 		<article>
 			<h1>Buscar Producto</h1>
 			
+
+			<div class="medium-12 columns">
+				<dl class="accordion" data-accordion>
+				  <dd class="accordion-navigation">
+				    <a href="#panel1">Buscar Producto</a>
+				    <div id="panel1" class="content">
+
 			<div class="row title">
 				<div class="medium-6 columns">
 					<h3>Información del producto</h3>
@@ -63,6 +70,37 @@
 					<button>Buscar</button>
 				</div>
 			</div>
+
+				</div>
+				</dd>
+				</dl>
+			</div>
+
+			<!--  Rabal de Resultados -->
+
+			<table>
+				<tr>
+					<th>Nombre</th>
+					<th>Clave</th>
+					<th>Descripción</th>
+					<th>Medida</th>
+					<th>Presentación</th>
+					<th>Cantidad</th>
+					<th>Editar</th>
+				</tr>
+
+				@foreach($Productos as $producto)
+				<tr>
+					<td> {{$producto->nombre }} </td>
+					<td> {{$producto->clave }} </td>
+					<td> {{$producto->descripcion }} </td>
+					<td> {{$producto->medida }} </td>
+					<td> {{$producto->presentacion }} </td>
+					<td> {{$producto->cantidad }} </td>
+					<td> <a class="button radius tiny"  href="{{$producto->id }}">Editar</a>  </td>
+				</tr>
+				@endforeach
+			</table>
 	
 		</article>
 	</section>	

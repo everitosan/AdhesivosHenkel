@@ -4,6 +4,12 @@
 		<article>
 			<h1>Buscar Venta</h1>
 		
+	
+	<div class="medium-12 columns">
+				<dl class="accordion" data-accordion>
+				  <dd class="accordion-navigation">
+				    <a href="#panel1">Buscar Venta</a>
+				    <div id="panel1" class="content">
 
 	<div class="row title">
 		<div class="medium-6  columns">
@@ -187,6 +193,49 @@
 			<button>Reporte de deudas</button>
 		</div>
 	</div>
+
+			</div>
+		</dd>
+		</dl>
+	</div>
+
+	<!--   	TABLA DE RESULTADOS	 -->
+
+	<table>
+		<tr>
+			<th>Folio</th>
+			<th>Fecha</th>
+			<th>Cliente</th>
+			<th>Concepto</th>
+			<th>Subtotal</th>
+			<th>Iva</th>
+			<th>Total</th>
+			<th>Estatus</th>
+			<th>Editar</th>
+		</tr>
+
+		@foreach($ventas as $venta)
+		
+			<tr>
+
+				<td> {{ $venta->folio }} </td>
+				<td> {{ $venta->fecha }} </td>
+				<td> {{ $venta->client->razonsocial }} </td>
+				<td> {{ $venta->concept->product->nombre }} </td>
+				<td> {{ $venta->subtotal }} </td>
+				<td> {{ $venta->iva }} </td>
+				<td> {{ $venta->total }} </td>
+				@if( $venta->estatus==1)
+					<td> Pagado </td>
+				@else
+					<td> Pendiente </td>
+				@endif
+				<td> <a class="button radius tiny" href=" {{ $venta->id }}  ">Editar  </a> </td>
+			</tr>
+		
+		@endforeach
+
+	</table>
 
 	</article>
 	</section>

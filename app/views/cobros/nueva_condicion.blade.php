@@ -4,6 +4,8 @@
 		<article>
 			<h1>Agregar nueva condición de pago</h1>
 
+			{{Form::open(['route'=>'setcondicionpago','method'=>'POST','role'=>'form','novalidate']) }}
+			
 			<div class="row title">
 				<div class="medium-6 columns">
 					<h3>Información sobre la condición de pago</h3>
@@ -15,13 +17,13 @@
 				
 			<div class="row">
 				<div class="medium-6 columns">
-					<label for="">Nombre</label>
-					<input type="text">
+					{{ Field::input('text', 'nombre'); }}
+					
 				</div>
 
 				<div class="medium-6 columns">
 					<label for="">Días de crédito</label>
-					<input type="text">
+					<input name="diascredito" type="text">
 				</div>
 
 			</div>
@@ -32,6 +34,8 @@
 				</div>
 			</div>
 			
+		{{Form::close()}}
+
 		</article>
 	</section>	
 @stop

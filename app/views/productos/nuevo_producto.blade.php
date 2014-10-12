@@ -23,10 +23,10 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="medium-4 columns">
+				<div class="medium-6 columns">
 					{{ Field::input('text', 'descripcion'); }}
 				</div>
-				<div class="medium-4 columns">
+				<div class="medium-6 columns">
 					<label for="">Medida</label>
 					<select name="medida" id="">
 						<option value=""></option>
@@ -35,7 +35,10 @@
 						<option value="Pieza">Pieza</option>
 					</select>
 				</div>
-				<div class="medium-4 columns">
+				
+			</div>
+			<div class="row">
+				<div class="medium-6 columns">
 					<label for="">Presentación</label>
 					<select name="presentacion" id="">
 						<option value=""></option>
@@ -44,10 +47,13 @@
 						@endforeach
 					</select>
 				</div>
+				<div class="medium-6 columns">
+					{{ Field::input('text', 'contenido'); }}
+				</div>
 			</div>
 			<div class="row boton">
 				<div class="medium-12 columns">
-					<input class="boton" type="submit" value="Agregar Nuevo">
+					<button>Agregar Nuevo</button>
 				</div>
 			</div>
 	

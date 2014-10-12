@@ -3,6 +3,12 @@
 	<section class="cobro">
 		<article>
 			<h1>Buscar gasto</h1>
+			
+			<div class="medium-12 columns">
+				<dl class="accordion" data-accordion>
+				  <dd class="accordion-navigation">
+				    <a href="#panel1">Buscar Gasto</a>
+				    <div id="panel1" class="content">
 
 			<div class="row title">
 				<div class="medium-6 columns">
@@ -83,6 +89,10 @@
 				</div>
 			</div>
 			
+				</div>
+				</dd>
+				</dl>
+			</div>
 
 		</article>
 	</section>	

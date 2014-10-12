@@ -4,6 +4,8 @@
 		<article>
 			<h1>Agregar nuevo gasto</h1>
 
+			{{Form::open(['route'=>'setgasto','method'=>'POST','role'=>'form','novalidate']) }}
+			
 			<div class="row title">
 				<div class="medium-6 columns">
 					<h3>Información del gasto</h3>
@@ -15,16 +17,14 @@
 
 			<div class="row">
 				<div class="medium-4 columns">
-					<label for="">Monto</label>
-					<input type="text">
+					{{ Field::input('text', 'monto','',['placeholder'=>'$'],[]); }}
 				</div>
 				<div class="medium-4 columns">
-					<label for="">Fecha</label>
-					<input type="date">
+					{{Field::input('date','fecha');}}
 				</div>
 				<div class="medium-4 columns">
 					<label for="">Rubro</label>
-					<select name="" id="">
+					<select name="rubro" id="">
 						<option value=""></option>
 						@foreach($Rubros as $rubro)
 							<option value="{{ $rubro->id }}">{{ $rubro->nombre }}</option>
@@ -35,11 +35,10 @@
 			<div class="row">
 				<div class="medium-6 columns">
 					<label for="">RFC Contratista</label>
-					<input type="text">
+					<input name="rfc" type="text">
 				</div>
 				<div class="medium-6 columns">
-					<label for="">Concepto</label>
-					<input type="text">
+					{{Field::input('text','concepto');}}
 				</div>
 			</div>
 			<div class="row title">
@@ -50,7 +49,7 @@
 			<div class="row">
 				<div class="medium-12 columns">
 					<label for="">Autorizó</label>
-					<select name="" id="">
+					<select name="usuario" id="">
 						<option value=""></option>
 						@foreach($Usuarios as $usuario)
 							<option value="{{ $usuario->id }}">{{ $usuario->nombre }}</option>
@@ -64,7 +63,8 @@
 				</div>
 			</div>
 			
-
+		{{Form::close()}}
+		
 		</article>
 	</section>	
 @stop

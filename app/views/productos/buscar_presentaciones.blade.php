@@ -4,12 +4,18 @@
 		<article>
 			<h1>Buscar Presentación</h1>
 
+			<div class="medium-12 columns">
+				<dl class="accordion" data-accordion>
+				  <dd class="accordion-navigation">
+				    <a href="#panel1">Buscar Producto</a>
+				    <div id="panel1" class="content">
+
 			<div class="row title">
 				<div class="medium-6 columns">
 					<h3>Información sobre presentación</h3>
 				</div>
 				<div class="medium-6 columns">
-					<button> Limpiar </button>
+					<button>Limpiar</button>
 				</div>
 			</div>
 			<div class="row">
@@ -35,6 +41,11 @@
 						Buscar
 					</button>
 				</div>
+			</div>
+
+				</div>
+				</dd>
+				</dl>
 			</div>
 
 		</article>

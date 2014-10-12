@@ -1,5 +1,5 @@
 <?php
-use Adhesivos\Repositories\HomeRepo;
+use Adhesivos\Repositories\ProductosRepo;
 use Adhesivos\Entities\Presentacion;
 use Adhesivos\Entities\Producto;
 use Adhesivos\Entities\PrecioProducto;
@@ -11,20 +11,32 @@ use Adhesivos\Managers\ProductoManager;
 use Adhesivos\Managers\PrecioProductoManager;
 use Adhesivos\Managers\PrecioEnvaseManager;
 
+
 Class ProductosController extends BaseController{
 
 	protected $productosRepo;
 
-	public function __construct(HomeRepo $productosRepo)
+	public function __construct(ProductosRepo $productosRepo)
 	{
 		$this->productosRepo=$productosRepo;
 	}
 
 	public function productos($action)
 		{
-			$presentaciones	= $this->productosRepo->obten_presentaciones();
-			$Productos 		= $this->productosRepo->obten_productos();
-			return View::make('productos/'.$action, compact(['presentaciones','Productos']));
+			$is_num=$action;
+			settype($is_num, "integer");
+
+			if($is_num==0)
+			{
+				$presentaciones	= $this->productosRepo->obten_presentaciones();
+				$Productos 		= $this->productosRepo->obten_productos();
+				return View::make('productos/'.$action, compact(['presentaciones','Productos']));
+			}
+			else
+			{
+				
+			}
+				
 		}
 
 	public function presentaciones($action)
@@ -113,4 +125,13 @@ Class ProductosController extends BaseController{
 		return Redirect::back()->withInput()->withErrors($manager->getErrors());
 
 	}
+
+	public function getreporteproductos()
+	{
+		$reportes=$this->productosRepo->reporte(Input::all());
+
+		return View::make('productos/Reporte_Generado', compact('reportes'));
+		
+	}
+
 }

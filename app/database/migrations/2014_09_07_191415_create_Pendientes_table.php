@@ -15,6 +15,7 @@ class CreatePendientesTable extends Migration {
 		Schema::create('Pendientes', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->date('fecha_limite');
 			$table->string('descripcion');
 			$table->string('estado');
 			$table->string('respuesta');

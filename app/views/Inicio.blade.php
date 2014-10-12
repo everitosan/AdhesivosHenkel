@@ -25,13 +25,13 @@
 				<td> {{ $venta->folio }} </td>
 				<td> {{ $venta->client->rfc }} </td>
 				<td> {{ $venta->fecha }} </td>
-				<td> {{ $venta->fechavencimiento}} </td>
-				<td> {{ $venta->fechaultimocobro}} </td>
+				<td> {{ $venta->fecha_vencimiento}} </td>
+				<td> {{ $venta->fecha_ultimo_cobro}} </td>
 				<td> {{ $venta->total}} </td>
-				<td> {{ $venta->totalcobrado}} </td>
-				<td>  </td>
-				<td> <a href="{{ route('nuevo_cobro') }}" > Cobrar </td>
-				<td> <a href="{{ route('nuevo_cobro') }}" > Pendientes </td>
+				<td> {{ $venta->total_cobrado}} </td>
+				<td> {{ $venta->total - $venta->total_cobrado }} </td>
+				<td> <a class="button radius tiny"  href="{{ route('nuevo_cobro') }}" > Cobrar </td>
+				<td> <a class="button radius tiny"  href="{{ route('nuevo_cobro') }}" > Pendientes </td>
 			</tr>
 			@endforeach
 

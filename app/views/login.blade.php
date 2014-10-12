@@ -2,26 +2,29 @@
 
 @section('content')
 
-<form class="ingreso" action="acceso.php" method="post" autocomplete="off">
-<input type="hidden" name="continuar">
+
+
 	<div class="half">
       <img src="img/login.png" alt="DDAH" width="150" height="100">
-	</div>
-	<div class="half">
+	
+	{{Form::open(['route'=>'dologin','method'=>'POST','role'=>'form']) }}
 
 	<div>
-     	<label for="nombre_usuario">Usuario:</label>
-    	<input name="nombre_usuario" type="text" autofocus="autofocus">	
+		{{ Field::input('text', 'nombreusuario'); }}
 	</div>
 	<div>
-      <label for="contrasena">Contraseña:</label>
-      <input name="contrasena" type="password">
+		{{ Field::input('password', 'password'); }}
 	</div>
 
 	<div>
- 		 <input type="submit" value="INGRESAR">
+ 		 <button>Ingresar</button>
 	</div>
 	</div>
-</form>
+
+	{{Form::close()}}
+
+	@if(Session::has('login_error'))
+		<p class="error">Acceso denegado</p>
+	@endif
 
 @stop

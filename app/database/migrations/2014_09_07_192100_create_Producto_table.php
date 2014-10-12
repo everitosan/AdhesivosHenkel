@@ -20,6 +20,7 @@ class CreateProductoTable extends Migration {
 			$table->string('descripcion');
 			$table->enum('medida',['Peso','Volumen','Pieza']);
 			$table->integer('presentacion')->unsigned();
+			$table->integer('cantidad');
 			$table->timestamps();
 
 			$table->foreign('presentacion')->references('id')->on('Presentacion');

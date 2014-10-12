@@ -4,6 +4,8 @@
 		<article>
 			<h1>Agregar nuevo rubro de gasto</h1>
 			
+			{{Form::open(['route'=>'setrubrogasto','method'=>'POST','role'=>'form','novalidate']) }}
+
 			<div class="row title">
 				<div class="medium-6 columns">
 					<h3>Rubro/categoría de gasto</h3>
@@ -15,12 +17,11 @@
 
 			<div class="row">
 				<div class="medium-6 columns">
-					<label for="">Nombre</label>
-					<input type="text">
+					{{ Field::input('text', 'nombre'); }}
+					
 				</div>
 				<div class="medium-6 columns">
-					<label for="">Descripción</label>
-					<input type="text">
+					{{ Field::input('text', 'descripcion'); }}
 				</div>
 			</div>
 
@@ -30,6 +31,8 @@
 				</div>
 			</div>
 
+		{{Form::close()}}
+		
 		</article>
 	</section>	
 @stop

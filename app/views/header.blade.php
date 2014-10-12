@@ -1,3 +1,5 @@
+@if(Auth::check())
+
 <!doctype html>
 <html lang=''>
 <head>
@@ -7,9 +9,10 @@
    <link rel="stylesheet" href=" {{asset('css/style.css') }} ">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Adhesivoshenkel</title>
+    <script src="{{asset ('js/vendor/jquery.js') }}" ></script>
 </head>
 <body>
-
+	
 	<nav id="menu" >
 	<ul>
 		<li><span> <a href="{{ route('inicio') }} "> Inicio </a> </span></li>
@@ -131,8 +134,8 @@
 
 	<div class="opc">
 	<div class="moneda">
-		<p>Precio Dolar</p>
-		<p> fecha </p>
+		<p>Dolar : {{ CurrencyTool::dollar_peso(1); }} </p>
+		<p> <input type="date" class="date"> </p>
 	</div>
 
 	<div class="print">
@@ -141,11 +144,11 @@
 
 	<div>
 		<p>Bienvenido</p>
-		<p> Usuario </p>
+		<p> {{Auth::user()->nombreusuario}} </p>
 	</div>
 
 	<div>
-		<button> Salir </button>
+		<button><a href="{{ route('logout') }}"> Salir </a></button>
 	</div>
 	</div>
 
@@ -156,10 +159,14 @@
  @yield('content')
 
 
- <script src="{{asset ('js/vendor/jquery.js') }}" ></script>
+
 <script src="{{ asset ('js/foundation/foundation.js') }}"></script>
 <script src="{{ asset ('js/foundation/foundation.accordion.js') }}"></script>
  <script src="{{asset ('js/boton.js') }}" ></script>
 
 </body>
 <html>
+
+@else
+		{{ Redirect::route('login'); }}
+@endif

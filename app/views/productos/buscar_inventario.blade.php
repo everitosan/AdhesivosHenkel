@@ -3,6 +3,14 @@
 	<section class="compra">
 		<article>
 			<h1>Buscar Inventario</h1>
+
+
+			<div class="medium-12 columns">
+				<dl class="accordion" data-accordion>
+				  <dd class="accordion-navigation">
+				    <a href="#panel1">Buscar Precio Producto</a>
+				    <div id="panel1" class="content">
+				    	
 			<div class="row title">
 				<div class="medium-6 columns">
 					<h3>Información del corte de inventario</h3>
@@ -48,7 +56,11 @@
 					<button>Buscar</button>
 				</div>
 			</div>
-
+			
+				</div>
+				</dd>
+				</dl>
+			</div>
 
 		</article>
 	</section>	

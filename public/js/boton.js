@@ -1,6 +1,7 @@
 $(function(){
 	$('button').on('click', def_action);
 	setdate_hour();
+
 });
 
 $(document).foundation({
@@ -20,6 +21,7 @@ function def_action(event)
 	{
 		case "Limpiar":
 			event.preventDefault();
+			console.log('limpiando');
 			$('input').val('');
 			$('select').val('');
 			setdate_hour();
@@ -29,6 +31,9 @@ function def_action(event)
 			break;
 	}
 }
+
+
+
 function setdate_hour()
 {
 	var d= new Date();
@@ -57,4 +62,15 @@ function menordiez(m)
 	if(m<10)
 		m="0"+m;
 	return m;
+}
+
+function ajax_connection(url)
+{
+	this.ajax_conf={};
+	this.ajax_conf.data={};
+	this.ajax_conf.url=url;
+
+	this.execute=function(){
+		$.ajax(this.ajax_conf);
+	};
 }

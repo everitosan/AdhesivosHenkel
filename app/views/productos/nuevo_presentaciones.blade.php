@@ -10,7 +10,7 @@
 					<h3>Información sobre presentación</h3>
 				</div>
 				<div class="medium-6 columns">
-					<button> Limpiar </button>
+					<button>Limpiar</button>
 				</div>
 			</div>
 			<div class="row">
@@ -23,7 +23,7 @@
 			</div>
 			<div class="row boton">
 				<div class="medium-12 columns">
-					<input class="boton" type="submit" value="Agregar Nuevo">
+					<button>Agregar nuevo</button>
 				</div>
 			</div>
 

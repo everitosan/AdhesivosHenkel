@@ -9,6 +9,11 @@ class Venta extends \Eloquent {
 		return $this->hasOne('Adhesivos\Entities\ClientesProovedores','id','cliente');
 	}
 
+	public function concept()
+	{
+		return $this->hasOne('Adhesivos\Entities\Concepto','id','concepto');
+	}
+
 	public function formadepago()
 	{
 		return $this->hasOne('Adhesivos\Entities\FormasPago','id','formapago');

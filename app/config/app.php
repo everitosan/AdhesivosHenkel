@@ -127,7 +127,8 @@ return array(
 		'Barryvdh\Debugbar\ServiceProvider',
 
 		//Custom
-		'Adhesivos\Components\FieldServiceProvider'
+		'Adhesivos\Components\FieldServiceProvider',
+		'Adhesivos\Components\Currency_toolServiceProvider'
 
 	),
 
@@ -197,7 +198,8 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 
 		//Custom
-		'Field'				=> 'Adhesivos\Components\Field'
+		'Field'				=> 'Adhesivos\Components\Field',
+		'CurrencyTool'				=> 'Adhesivos\Components\CurrencyTool'
 
 	),
 

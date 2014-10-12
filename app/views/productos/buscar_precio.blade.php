@@ -4,6 +4,12 @@
 		<article>
 			<h1>Buscar Precio Producto</h1>
 
+			<div class="medium-12 columns">
+				<dl class="accordion" data-accordion>
+				  <dd class="accordion-navigation">
+				    <a href="#panel1">Buscar Precio Producto</a>
+				    <div id="panel1" class="content">
+
 			<div class="row title">
 				<div class="medium-6 columns">
 					<h3>Precio del producto</h3>
@@ -68,6 +74,11 @@
 				<div class="medium-12 columns">
 					<button>Buscar</button>
 				</div>
+			</div>
+
+				</div>
+				</dd>
+				</dl>
 			</div>
 
 		</article>

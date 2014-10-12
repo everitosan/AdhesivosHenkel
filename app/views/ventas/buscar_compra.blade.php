@@ -2,7 +2,16 @@
 @section('content')
 	<section class="compra">
 		<article>
+
 			<h1>Buscar Compra</h1>
+			
+
+			<div class="medium-12 columns">
+				<dl class="accordion" data-accordion>
+				  <dd class="accordion-navigation">
+				    <a href="#panel1">Buscar Compra</a>
+				    <div id="panel1" class="content">
+
 
 			<div class="row title">
 				<div class="medium-6 columns">
@@ -140,6 +149,16 @@
 					<button>Reporte de compras</button>
 				</div>
 			</div>
+
+
+				</div>
+				</dd>
+				</dl>
+			</div>
+
+
+			<!--   TABLA DE RESULTADOS -->
+
 		</article>
 	</section>	
 @stop

@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			<div class="row boton">
-				<input class="boton" type="submit" value="Agregar Nuevo">
+				<button>Agregar Nuevo</button>
 			</div>
 		{{Form::close()}}
 		</article>

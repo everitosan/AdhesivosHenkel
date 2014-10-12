@@ -18,7 +18,7 @@ class ProductoTableSeeder extends Seeder {
 				'descripcion'=>$faker->text,
 				'medida'=>$faker->randomElement(['Peso','Volumen','Pieza']),
 				'presentacion'=>$faker->randomElement([1,2,3]),
-
+				'cantidad'=>$faker->randomElement([20,300,500])
 			]);
 		}
 	}

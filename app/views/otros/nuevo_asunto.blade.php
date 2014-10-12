@@ -4,6 +4,8 @@
 		<article>
 			<h1>Agregar asunto pendiente [General]</h1>
 
+			{{Form::open(['route'=>'setasunto','method'=>'POST','role'=>'form','novalidate']) }}
+
 			<div class="row title">
 				<div class="medium-6 columns">
 					<h3>Asunto pendiente</h3>
@@ -15,18 +17,18 @@
 
 			<div class="row">
 				<div class="medium-4 columns">
-					<label for="">Fecha limite</label>
-					<input type="date">
+					{{Field::input('date','fecha limite');}}
+					
 				</div>
 				<div class="medium-8 columns">
-					<label for="">Descripción</label>
-					<input type="text">
+					{{Field::input('text','descripcion');}}
+					
 				</div>
 			</div>
 			<div class="row">
 				<div class="medium-6 columns">
 					<label for="">Estado</label>
-					<select name="" id="">
+					<select name="estado" id="">
 						<option value=""></option>
 						<option value="Activo">Activo</option>
 						<option value="Finalizado">Finalizado</option>
@@ -35,14 +37,13 @@
 					</select>
 				</div>
 				<div class="medium-6 columns">
-					<label for="">Respuesta</label>
-					<input type="text">
+					{{Field::input('text','respuesta');}}
 				</div>
 			</div>
 			<div class="row">
 				<div class="medium-12 columns">
 					<label for="">Responsable</label>
-					<select name="" id="">
+					<select name="responsable" id="">
 						<option value=""></option>
 						@foreach($Usuarios as $usuario)
 							<option value=" {{$usuario->id}} "> {{$usuario->nombre}} </option>
@@ -57,6 +58,7 @@
 				</div>
 			</div>
 			
+		{{Form::close()}}
 
 		</article>
 	</section>	

@@ -62,6 +62,18 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
+		
+		/*
+		'mysql' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'distri18_Adhesivos_new',
+			'username'  => 'distri18_root',
+			'password'  => 'canont2i',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),*/
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

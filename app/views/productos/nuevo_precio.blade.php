@@ -51,7 +51,7 @@
 			</div>
 			<div class="row boton">
 				<div class="medium-12 columns">
-					<input class="boton" type="submit" value="Agregar Nuevo">
+					<button>Agregar Nuevo</button>
 				</div>
 			</div>
 

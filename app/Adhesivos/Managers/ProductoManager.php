@@ -12,7 +12,8 @@ Class ProductoManager extends BaseManager{
 				'clave'=>'required',
 				'descripcion'=>'required',
 				'medida'=>'required',
-				'presentacion'=>'required'
+				'presentacion'=>'required',
+				'cantidad'=>'required|numeric'
 				];
 		return $rules;
 	}
