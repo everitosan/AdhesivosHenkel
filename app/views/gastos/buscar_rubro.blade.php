@@ -4,52 +4,34 @@
 		<article>
 			<h1>Buscar rubros de gasto</h1>
 			
-			<div class="medium-12 columns">
-				<dl class="accordion" data-accordion>
-				  <dd class="accordion-navigation">
-				    <a href="#panel1">Buscar Rubro Gasto</a>
-				    <div id="panel1" class="content">
+			<!--  Tabla de Resultados -->
 
-			<div class="row title">
-				<div class="medium-6 columns">
-					<h3>Buscar rubros de gasto</h3>
-				</div>
-				<div class="medium-6 columns">
-					<button>Limpiar</button>
-				</div>
-			</div>
+			<table>
+				<tr>
+					<th>Nombre</th>
+					<th>Descripción</th>
+					<th>Editar</th>
 
-			<div class="row">
-				<div class="medium-6 columns">
-					<label for="">Nombre</label>
-					<input type="text">
-				</div>
-				<div class="medium-6 columns">
-					<label for="">Descripción</label>
-					<input type="text">
-				</div>
-			</div>
+				</tr>
 
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Coincidencias</label>
-					<select>
-						<option value="any">Cualquiera</option>
-						<option value="all">Todas</option>
-					</select>
-				</div>
-			</div>
+				<tr>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input class="filtro" type="text"> </th>
+					
+					
+					<th>	</th>
+				</tr>
 
-			<div class="row boton">
-				<div class="medium-12 columns">
-					<button>Buscar</button>
-				</div>
-			</div>
+				@foreach($rubrosgastos as $rubrogasto)
+				<tr>
+					
+					<td> {{$rubrogasto->nombre}} </td>
+					<td> {{$rubrogasto->descripcion}} </td>
 
-				</div>
-				</dd>
-				</dl>
-			</div>
+					<td> <a class="button radius tiny"  href="{{ route('viewrubrogasto',[$rubrogasto->id]) }}">Editar</a>  </td>
+				</tr>
+				@endforeach
+			</table>
 
 		</article>
 	</section>	

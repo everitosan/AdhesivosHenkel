@@ -16,7 +16,6 @@ class CreatePresentacionTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('nombre');
-			$table->float('precio');
 			$table->timestamps();
 		});
 	}

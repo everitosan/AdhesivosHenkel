@@ -4,95 +4,44 @@
 		<article>
 			<h1>Buscar gasto</h1>
 			
-			<div class="medium-12 columns">
-				<dl class="accordion" data-accordion>
-				  <dd class="accordion-navigation">
-				    <a href="#panel1">Buscar Gasto</a>
-				    <div id="panel1" class="content">
+			<!--  Tabla de Resultados -->
 
-			<div class="row title">
-				<div class="medium-6 columns">
-					<h3>Información del gasto</h3>
-				</div>
-				<div class="medium-6 columns">
-					<button>Limpiar</button>
-				</div>
-			</div>
+			<table>
+				<tr>
+					<th>Fecha</th>
+					<th>RFC</th>
+					<th>Rubro</th>
+					<th>Concepto</th>
+					<th>Usuario</th>
+					<th>Monto</th>
+					<th>Editar</th>
 
+				</tr>
 
-			<div class="row">
-				<div class="medium-4 columns">
-					<label for="">Monto</label>
-					<input type="text">
-				</div>
-				<div class="medium-4 columns">
-					<label for="">Desde</label>
-					<input type="date">
-				</div>
-				<div class="medium-4 columns">
-					<label for="">Hasta</label>
-					<input type="date">
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-6 columns">
-					<label for="">Rubro</label>
-					<select name="" id="">
-						<option value=""></option>
-						@foreach($Rubros as $rubro)
-							<option value="{{ $rubro->id }}">{{ $rubro->nombre }}</option>
-						@endforeach
-					</select>
-				</div>
-				<div class="medium-6 columns">
-					<label for="">RFC Contratista</label>
-					<input type="text">
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Concepto</label>
-					<input type="text">
-				</div>
-			</div>
-			<div class="row title">
-				<div class="medium-12 columns">
-					<h3>Colaborador que autoriza</h3>
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Autorizó</label>
-					<select name="" id="">
-						<option value=""></option>
-						@foreach($Usuarios as $usuario)
-							<option value="{{ $usuario->id }}">{{ $usuario->nombre }}</option>
-						@endforeach
-					</select>
-				</div>
-			</div>
+				<tr>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input class="filtro" type="text"> </th>
+					
+					<th>	</th>
+				</tr>
 
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Coincidencias</label>
-					<select>
-						<option value="any">Cualquiera</option>
-						<option value="all">Todas</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="row boton">
-				<div class="medium-12 columns">
-					<button>Buscar</button>
-					<button>Buscar Reporte de gatos</button>
-				</div>
-			</div>
-			
-				</div>
-				</dd>
-				</dl>
-			</div>
+				@foreach($gastos as $gasto)
+				<tr>
+					
+					<td> {{$gasto->fecha}} </td>
+					<td> {{$gasto->rfc}} </td>
+					<td> {{$gasto->rubro}} </td>
+					<td> {{$gasto->concepto}} </td>
+					<td> {{$gasto->usuario}} </td>
+					<td> {{$gasto->monto}} </td>
+					<td> <a class="button radius tiny"  href="{{ route('viewgasto',[$gasto->id]) }}">Editar</a>  </td>
+				</tr>
+				@endforeach
+			</table>
 
 		</article>
 	</section>	

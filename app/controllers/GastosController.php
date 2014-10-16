@@ -1,5 +1,5 @@
 <?php
-use Adhesivos\Repositories\HomeRepo;	
+use Adhesivos\Repositories\GastosRepo;	
 use Adhesivos\Entities\RobrosGasto;	
 use Adhesivos\Entities\Gasto;	
 
@@ -9,39 +9,52 @@ use Adhesivos\Managers\GastoManager;
 
 Class GastosController extends BaseController{
 
-	protected $productosRepo;
+	protected $gastosRepo;
 
-	public function __construct(HomeRepo $productosRepo)
+	public function __construct(GastosRepo $gastosRepo)
 	{
-		$this->productosRepo=$productosRepo;
+		$this->gastosRepo=$gastosRepo;
 	}
 
+	//--------- Gasto  --------------
 	public function gasto($action)
 		{
-			$Rubros 	= $this->productosRepo->obten_Rubos();
-			$Usuarios 	= $this->productosRepo->obten_vendedor();
-			return View::make('gastos/'.$action, compact(['Rubros','Usuarios']));
+			$Rubros 	= $this->gastosRepo->obten_Rubos();
+			$Usuarios 	= $this->gastosRepo->obten_vendedor();
+			$gastos 	= $this->gastosRepo->obten_gastos(); 	
+			return View::make('gastos/'.$action, compact(['Rubros','Usuarios', 'gastos']));
 		}
-	public function rubosGasto($action)
-		{
-			return View::make('gastos/'.$action);
-		}
-
-	//--------- SET
 
 	public function setgasto()
-	{
-		$gasto= new Gasto();
-		$manager = new GastoManager($gasto,Input::all());
-	
-		if($manager->save())
 		{
-			return Redirect::route('inicio');
-		}
+			$gasto= new Gasto();
+			$manager = new GastoManager($gasto,Input::all());
+		
+			if($manager->save())
+			{
+				return Redirect::route('inicio');
+			}
 
-		return Redirect::back()->withInput()->withErrors($manager->getErrors());
+			return Redirect::back()->withInput()->withErrors($manager->getErrors());
+
+		}
+	public function viewgasto()
+	{
 
 	}
+
+	public function updategasto()
+	{
+
+	}
+
+	//--------- RubrosGasto  --------------
+
+	public function rubosGasto($action)
+		{
+			$rubrosgastos=$this->gastosRepo->obten_rubrosgasto();
+			return View::make('gastos/'.$action, compact(['rubrosgastos']));
+		}
 
 	public function setrubrogasto()
 	{
@@ -54,5 +67,15 @@ Class GastosController extends BaseController{
 		}
 
 		return Redirect::back()->withInput()->withErrors($manager->getErrors());
+	}
+
+	public function viewrubrogasto()
+	{
+
+	}
+
+	public function updaterubrogasto()
+	{
+		
 	}
 }

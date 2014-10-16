@@ -41,7 +41,8 @@ td,th{padding:0}
 body{text-align:center}
 .home h3{color:#f15454}
 table{margin:0 auto;width:100%;}
-table tr th{background:#e5ebee;padding:0 1em;text-align:center;border:1px solid #d4dfe4}
+table tr th{background:#e5ebee;padding:0 1em;text-align:center;border:1px solid #d4dfe4;}
+table tr th input[type="text"]{margin:1rem 0}
 table tr td{text-align:center;border:1px solid #d4dfe4}
 .venta .title,.compra .title,.cliente .title,.cobro .title{background:#0c5061;}
 .venta .title h3,.compra .title h3,.cliente .title h3,.cobro .title h3{color:#fff}
@@ -49,6 +50,7 @@ table tr td{text-align:center;border:1px solid #d4dfe4}
 .venta .accordion-navigation a,.compra .accordion-navigation a,.cliente .accordion-navigation a,.cobro .accordion-navigation a{background:#17809b;color:#fff}
 .venta .accordion-navigation a:hover,.compra .accordion-navigation a:hover,.cliente .accordion-navigation a:hover,.cobro .accordion-navigation a:hover{background:#fff;color:#17809b;outline:1px solid #1cabcf}
 .error{color:#f15454}
+section .hidden{display:none}
 ul{margin:0;padding:0}
 a{color:inherit;text-decoration:none}
 #menu{border-bottom:1px solid #1cabcf;border-top:1px solid #1cabcf;background:#1cabcf;color:#d4e3ec;height:60px;position:relative;position:fixed;top:0;left:0;width:100%;z-index:100;}

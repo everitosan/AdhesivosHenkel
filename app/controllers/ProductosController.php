@@ -21,56 +21,43 @@ Class ProductosController extends BaseController{
 		$this->productosRepo=$productosRepo;
 	}
 
+
+
+	//				PRODUCTOS  ------------------------------
+
 	public function productos($action)
 		{
-			$is_num=$action;
-			settype($is_num, "integer");
-
-			if($is_num==0)
-			{
-				$presentaciones	= $this->productosRepo->obten_presentaciones();
 				$Productos 		= $this->productosRepo->obten_productos();
-				return View::make('productos/'.$action, compact(['presentaciones','Productos']));
-			}
-			else
-			{
-				
-			}
-				
+				$presentaciones = $this->productosRepo->obten_presentaciones();
+				return View::make('productos/'.$action, compact(['presentaciones','Productos']));			
 		}
+
+	public function setproducto()
+	{
+		$producto= new Producto();
+		$manager= new ProductoManager($producto, Input::all());
+		if($manager->save())
+		{
+			return Redirect::route('inicio');
+		}
+
+		return Redirect::back()->withInput()->withErrors($manager->getErrors());
+	}
+
+	public function viewproducto()
+	{
+
+	}
+
+	//				PRESENTACIONES  ------------------------------
 
 	public function presentaciones($action)
 		{
 			
-			return View::make('productos/'.$action);
-		}
-
-	public function preciosProductos($action)
-		{
-			$productos		= $this->productosRepo->obten_productos();
-			return View::make('productos/'.$action,compact('productos'));
-		}
-	public function preciosEnvases($action)
-		{
 			$presentaciones	= $this->productosRepo->obten_presentaciones();
-			return View::make('productos/'.$action, compact(['presentaciones','']));
-		}
-	public function cortesInventario($action)
-		{
-			return View::make('productos/'.$action);
-		}
-	public function reporteInventario($action)
-		{
-			return View::make('productos/'.$action);
-		}
-	public function reporteProductosVendidos($action)
-		{
-			$clientes		= $this->productosRepo->obten_clientes(); 
-			return View::make('productos/'.$action,compact('clientes'));
+			return View::make('productos/'.$action, compact(['presentaciones']));
 		}
 
-
-	//-------------SET-
 	public function setpresentaciones()
 	{
 		$presentacion= new Presentacion();
@@ -85,17 +72,18 @@ Class ProductosController extends BaseController{
 
 	}
 
-	public function setproducto()
+	public function viewpresentacion()
 	{
-		$producto= new Producto();
-		$manager= new ProductoManager($producto, Input::all());
-		if($manager->save())
-		{
-			return Redirect::route('inicio');
-		}
 
-		return Redirect::back()->withInput()->withErrors($manager->getErrors());
 	}
+
+	//				PRECIOS PRODUCTOS  ------------------------------
+	public function preciosProductos($action)
+		{
+			$precioproductos = $this->productosRepo->obten_precioproductos();
+			$productos= $this->productosRepo->obten_productos();
+			return View::make('productos/'.$action,compact(['precioproductos','productos']));
+		}
 
 	public function setprecioproducto()
 	{
@@ -111,6 +99,20 @@ Class ProductosController extends BaseController{
 
 	}
 
+	public function viewprecioproducto()
+	{
+
+	}
+
+	//				PRECIOS ENVASES  ------------------------------
+	public function preciosEnvases($action)
+		{
+			$presentaciones	= $this->productosRepo->obten_presentaciones();
+			$preciopresentaciones= $this->productosRepo->obten_preciopresentacion();
+			return View::make('productos/'.$action, compact(['presentaciones','preciopresentaciones']));
+		}
+	
+
 	public function setprecioenvase()
 	{
 		
@@ -125,6 +127,33 @@ Class ProductosController extends BaseController{
 		return Redirect::back()->withInput()->withErrors($manager->getErrors());
 
 	}
+
+	public function viewprecioenvase()
+	{
+
+	}
+
+
+	//		INVENTARIO --------------------------
+	
+
+	
+
+	public function cortesInventario($action)
+		{
+			return View::make('productos/'.$action);
+		}
+	public function reporteInventario($action)
+		{
+			return View::make('productos/'.$action);
+		}
+	public function reporteProductosVendidos($action)
+		{
+			$clientes		= $this->productosRepo->obten_clientes(); 
+			return View::make('productos/'.$action,compact('clientes'));
+		}
+
+	
 
 	public function getreporteproductos()
 	{

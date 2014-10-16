@@ -29,6 +29,7 @@ class CreateVentaTable extends Migration {
 			$table->integer('vendedor')->unsigned();
 			$table->text('observaciones_generales');
 			$table->integer('concepto')->unsigned();
+			$table->integer('no_pedido');
 			$table->date('fecha_embarque');
 			$table->string('direccion_embarque');
 			$table->text('observaciones_embarque');

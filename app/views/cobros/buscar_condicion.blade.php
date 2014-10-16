@@ -4,55 +4,32 @@
 		<article>
 			<h1>Buscar condición de pago</h1>
 			
-			<div class="medium-12 columns">
-				<dl class="accordion" data-accordion>
-				  <dd class="accordion-navigation">
-				    <a href="#panel1">Buscar Condición Pago</a>
-				    <div id="panel1" class="content">
+				<!--  Tabla de Resultados -->
 
-			<div class="row title">
-				<div class="medium-6 columns">
-					<h3>Información sobre la forma de pago</h3>
-				</div>
-				<div class="medium-6 columns">
-					<button>Limpiar</button>
-				</div>
-			</div>
-				
-			<div class="row">
-				<div class="medium-6 columns">
-					<label for="">Nombre</label>
-					<input type="text">
-				</div>
+			<table>
+				<tr>
+					<th>Nombre</th>
+					<th>Días de crédito</th>
+					<th>Editar</th>
 
-				<div class="medium-6 columns">
-					<label for="">Días de crédito</label>
-					<input type="text">
-				</div>
+				</tr>
 
-			</div>
+				<tr>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input class="filtro" type="text"> </th>
+					
+					<th>	</th>
+				</tr>
 
-			
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Coincidencias</label>
-					<select>
-						<option value="any">Cualquiera</option>
-						<option value="all">Todas</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="row boton">
-				<div class="medium-12 columns">
-					<button>Buscar</button>
-				</div>
-			</div>
-				
-				</div>
-				</dd>
-				</dl>
-			</div>
+				@foreach($condicionesPago as $condicionpago)
+				<tr>
+					
+					<td> {{$condicionpago->nombre}} </td>
+					<td> {{$condicionpago->diascredito}} </td>
+					<td> <a class="button radius tiny"  href="{{ route('viewcondicionpago',[$condicionpago->id]) }}">Editar</a>  </td>
+				</tr>
+				@endforeach
+			</table>
 
 		</article>
 	</section>	

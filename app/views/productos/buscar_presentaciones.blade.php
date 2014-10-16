@@ -4,49 +4,29 @@
 		<article>
 			<h1>Buscar Presentación</h1>
 
-			<div class="medium-12 columns">
-				<dl class="accordion" data-accordion>
-				  <dd class="accordion-navigation">
-				    <a href="#panel1">Buscar Producto</a>
-				    <div id="panel1" class="content">
+			<!--  Tabla de Resultados -->
 
-			<div class="row title">
-				<div class="medium-6 columns">
-					<h3>Información sobre presentación</h3>
-				</div>
-				<div class="medium-6 columns">
-					<button>Limpiar</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Nombre</label>
-					<input type="text">
-				</div>
-			</div>
+			<table>
+				<tr>
+					<th>Nombre</th>
+					<th>Editar</th>
+
+				</tr>
+
+				<tr>
+					<th> <input class="filtro" type="text"> </th>
 			
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Coincidencias</label>
-					<select>
-						<option value="any">Cualquiera</option>
-						<option value="all">Todas</option>
-					</select>
-				</div>
-			</div>
+					<th>	</th>
+				</tr>
 
-			<div class="row boton">
-				<div class="medium-12 columns">
-					<button>
-						Buscar
-					</button>
-				</div>
-			</div>
+				@foreach($presentaciones as $presentacion)
+				<tr>
+					<td> {{$presentacion->nombre }} </td>
 
-				</div>
-				</dd>
-				</dl>
-			</div>
+					<td> <a class="button radius tiny"  href=" {{ route('viewpresentacion',[$presentacion->id]) }}">Editar</a>  </td>
+				</tr>
+				@endforeach
+			</table>
 
 		</article>
 	</section>	

@@ -2,6 +2,8 @@
 namespace Adhesivos\Repositories;
 
 use Adhesivos\Entities\Venta;
+use Adhesivos\Entities\PrecioProducto;
+use Adhesivos\Entities\PrecioEnvase;
 
 class ProductosRepo extends BaseRepo{
 
@@ -20,4 +22,13 @@ class ProductosRepo extends BaseRepo{
 		}
 	}
 
+	public function obten_precioproductos()
+	{
+		return PrecioProducto::with('product')->get();
+	}
+
+	public function obten_preciopresentacion()
+	{
+		return PrecioEnvase::with('presentacio')->get();
+	}
 }

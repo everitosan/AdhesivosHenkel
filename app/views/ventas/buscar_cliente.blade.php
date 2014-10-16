@@ -5,117 +5,39 @@
 			<h1>Buscar Cliente</h1>
 
 
+	<table>
+		<tr>
+			<th>RFC</th>
+			<th>Razón Social</th>
+			<th>Cuidad</th>
+			<th>Estado</th>
+			<th>Delegación/Municipio</th>
+			
+			<th>Editar</th>
+		</tr>
+		<tr>
+			<th> <input class="filtro" type="text"> </th>
+			<th> <input class="filtro" type="text"> </th>
+			<th> <input class="filtro" type="text"> </th>
+			<th> <input class="filtro" type="text"> </th>
+			<th> <input type="text" class="filtro"> </th>
+			<th>	</th>
+		</tr>
 
-			<div class="medium-12 columns">
-				<dl class="accordion" data-accordion>
-				  <dd class="accordion-navigation">
-				    <a href="#panel1">Buscar Cliente</a>
-				    <div id="panel1" class="content">
+		@foreach($clientes as $cliente)
+		
+			<tr>
 
+				<td> {{ $cliente->rfc }} </td>
+				<td> {{ $cliente->razonsocial}} </td>
+				<td> {{ $cliente->ciudad }} </td>
+				<td> {{ $cliente->estado }} </td>
+				<td> {{ $cliente->delegacionmunicipio }} </td>
 
-			<div class="row title">
-				<div class="medium-6 columns">
-					<h3>Datos del cliente</h3>
-				</div>
-				<div class="medium-6 columns">
-					<button>Limpiar</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-4 columns">
-					<label for="">RFC</label>
-					<input type="text">
-				</div>
-				<div class="medium-8 columns">
-					<label for="">Razón Social</label>
-					<input type="text">
-				</div>
-			</div>
-			<div class="row title">
-				<div class="medium-12 columns">
-					<h3>Dirección fiscal</h3>
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-4 columns">
-					<label for="">Calle</label>
-					<input type="text">
-				</div>
-				<div class="medium-4 columns">
-					<label for="">No. Ext</label>
-					<input type="text">
-				</div>
-				<div class="medium-4 columns">
-					<label for="">No. Int</label>
-					<input type="text">
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-4 columns">
-					<label for="">Colonia</label>
-					<input type="text">
-				</div>
-				<div class="medium-4 columns">
-					<label for="">Delegación o Municipio</label>
-					<input type="text">
-				</div>
-				<div class="medium-4 columns">
-					<label for="">Ciudad</label>
-					<input type="text">
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-6 columns">
-					<label for="">Estado</label>
-					<input type="text">
-				</div>
-				<div class="medium-6 columns">
-					<label for="">C.P.</label>
-					<input type="text">
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Referencias de ubicación</label>
-					<input type="text">
-				</div>
-			</div>
-			<div class="row title">
-				<div class="medium-12 columns">
-					<h3>Registro en el sistema</h3>
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-6 columns">
-					<label for="">Fecha de alta desde</label>
-					<input type="date">
-				</div>
-				<div class="medium-6 columns">
-					<label for="">Fecha de alta hasta</label>
-					<input type="date">
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Coincidencias</label>
-					<select>
-						<option value="any">Cualquiera</option>
-						<option value="all">Todas</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="row boton">
-				<div class="medium-12 columns">
-					<button>Buscar</button>
-				</div>
-			</div>
-
-				</div>
-				</dd>
-				</dl>
-			</div>
+				<td> <a class="button radius tiny" href=" {{ route('viewcliente',[$cliente->id]) }}  ">Editar  </a> </td>
+			</tr>
+		
+		@endforeach
 
 		</article>
 	</section>	

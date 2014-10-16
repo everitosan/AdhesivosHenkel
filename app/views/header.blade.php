@@ -156,13 +156,13 @@
 
 
 
+<script src="{{ asset ('js/foundation/foundation.js') }}"></script>
+<script src="{{ asset ('js/foundation/foundation.accordion.js') }}"></script>
+ <script src="{{asset ('js/boton.js') }}" ></script>
  @yield('content')
 
 
 
-<script src="{{ asset ('js/foundation/foundation.js') }}"></script>
-<script src="{{ asset ('js/foundation/foundation.accordion.js') }}"></script>
- <script src="{{asset ('js/boton.js') }}" ></script>
 
 </body>
 <html>

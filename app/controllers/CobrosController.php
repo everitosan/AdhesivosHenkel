@@ -1,6 +1,6 @@
 <?php
 
-use Adhesivos\Repositories\HomeRepo;
+use Adhesivos\Repositories\CobrosRepo;
 use Adhesivos\Entities\CobroPendientes;
 use Adhesivos\Entities\FormasPago;
 use Adhesivos\Entities\CondicionPago;
@@ -13,30 +13,21 @@ use Adhesivos\Managers\CondicionPagoManager;
 
 Class CobrosController extends BaseController{
 
-	protected $productosRepo;
+	protected $cobrosRepo;
 
-	public function __construct(HomeRepo $productosRepo)
+	public function __construct(CobrosRepo $cobrosRepo)
 	{
-		$this->productosRepo=$productosRepo;
+		$this->cobrosRepo=$cobrosRepo;
 	}
+
+
+	//--------	COBRO  ------------------
 
 	public function cobros($action)
 	{
-		return View::make('cobros/'.$action);
+		$cobros=$this->cobrosRepo->obten_cobros();
+		return View::make('cobros/'.$action, compact(['cobros']));
 	}
-
-	public function formasPago($action)
-	{
-		return View::make('cobros/'.$action);
-	}
-
-	public function condicionesPago($action)
-	{
-		return View::make('cobros/'.$action);
-	}
-
-
-	//--------	SET
 
 	public function setcobro()
 	{
@@ -50,6 +41,24 @@ Class CobrosController extends BaseController{
 
 		return Redirect::back()->withInput()->withErrors($manager->getErrors());
 
+	}
+
+	public function viewcobro()
+	{
+
+	}
+
+	public function updatecobro()
+	{
+
+	}
+
+	//--------	FORMA DE PAGO  ------------------
+
+	public function formasPago($action)
+	{
+		$formaspago= $this->cobrosRepo->obten_formpaspago();
+		return View::make('cobros/'.$action, compact(['formaspago']));
 	}
 
 	public function setformapago()
@@ -66,6 +75,24 @@ Class CobrosController extends BaseController{
 
 	}
 
+	public function viewformapago()
+	{
+
+	}
+
+	public function updateformapago()
+	{
+
+	}
+
+	//--------	CONDICION DE PAGO  ------------------
+
+	public function condicionesPago($action)
+	{
+		$condicionesPago=$this->cobrosRepo->obten_condicionespago();
+		return View::make('cobros/'.$action, compact(['condicionesPago']));
+	}
+
 	public function setcondicionpago()
 	{
 		$condicionPago 	= new CondicionPago();
@@ -77,6 +104,16 @@ Class CobrosController extends BaseController{
 		}
 
 		return Redirect::back()->withInput()->withErrors($manager->getErrors());
+
+	}
+
+	public function viewcondicionpago()
+	{
+
+	}
+
+	public function updatecondicionpago()
+	{
 
 	}
 }

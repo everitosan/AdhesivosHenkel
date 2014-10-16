@@ -15,7 +15,7 @@
 				{{ Field::input('select', 'tipo','',[''],['Nota'=>'Nota']); }}
 			</div>
 			<div class="medium-3 columns">
-				{{ Field::input('text', 'folio'); }}
+				{{ Field::input('text', 'folio', $folio); }}
 			</div>
 			<div class="medium-3 columns">
 				{{ Field::input('date', 'fecha','',['class'=>'date']); }}
@@ -57,12 +57,15 @@
 			</div>
 			<div class="medium-4 columns">
 				<label for="">Condición de pago</label>
-				<select name="condicion_pago" id="">
+				<select name="condicion_pago" id="condicion_pago">
 					<option value=""></option>
 					@foreach($CondicionPago as $condicion)
 						<option value="{{ $condicion->id}}">{{ $condicion->nombre}}</option>
 					@endforeach
 				</select>
+
+				<input id="estatus" name="estatus" value="1" class="hidden" type="hidden">
+				<input id="fecha_vencimiento" name="fecha_vencimiento" class="hidden" type="date">
 			</div>
 		</div>
 
@@ -124,7 +127,7 @@
 				    	<div class="row">
 				      		<div class="medium-6 columns">
 				      			<label for="">Producto</label>
-								<select name="producto" id="">
+								<select id="producto" name="producto" id="">
 									<option value=""></option>
 									@foreach($productos as $producto)
 										<option value="{{ $producto->id}}">{{ $producto->nombre}}</option>
@@ -133,7 +136,7 @@
 				      		</div>
 				      		<div class="medium-6 columns">
 				      			<label for="">Presentación</label>
-								<select name="" id="">
+								<select name="" id="presentacion">
 									<option value=""></option>
 									@foreach($presentaciones as $presentacion)
 										<option value="{{ $presentacion->id}}">{{ $presentacion->nombre}}</option>
@@ -144,26 +147,26 @@
 				    	<div class="row">
 				    		<div class="medium-4 columns">
 				    			<label for="">Cantidad</label>
-				    			<input name="cantidad" type="text" placeholder="KG">
+				    			<input id="cantidad" name="cantidad" type="text" placeholder="KG">
 				    		</div>
 				    		<div class="medium-4 columns">
 				    			<label for="">Precio Unitario</label>
-				    			<input type="text" placeholder="$">
+				    			<input id="preciounitario" name="preciounitario" type="text" placeholder="$">
 				    		</div>
 				    		<div class="medium-4 columns">
 				    			<label for="">Descuento </label>
-				    			<input name="descuento" type="text"  placeholder="%">
+				    			<input name="descuento" id="descuento" type="text"  placeholder="%">
 				    		</div>
 				    	</div>
 
 				    	<div class="row">
 							<div class="medium-6 columns">
 								<label for="">No. envases</label>
-								<input name="noenvases" type="text">
+								<input id="no_envases" name="noenvases" type="text">
 							</div>
 							<div class="medium-6 columns">
 								<label for="">Facturar por</label>
-								<select name="facturapor" id="">
+								<select name="facturapor" id="facturar_por">
 									<option value=""></option>
 									<option value="cantidad">Cantidad</option>
 									<option value="noenvases">No. Envases</option>
@@ -183,15 +186,15 @@
 		<div class="row">
 			<div class=" medium-4 columns">
 				<label for="">Subtotal</label>
-				<input type="text" readonly>
+				<input name="subtotal" type="text" readonly id="subtotal">
 			</div>
 			<div class=" medium-4 columns">
 				<label for="">IVA</label>
-				<input type="text" readonly>
+				<input name="iva" type="text" readonly id="iva">
 			</div>
 			<div class=" medium-4 columns">
 				<label for="">Total</label>
-				<input type="text" readonly>
+				<input name="total" type="text" readonly id="total">
 			</div>
 		</div>
 		<div class="row boton">
@@ -199,10 +202,130 @@
 				<button>Agregar nuevo</button>
 			</div>
 		</div>
-	
+
 		{{Form::close()}}
+
 		</article>
 
+<script>
+	$('#producto').on('change', request_info_product);
+	$('#no_envases').on('keyup', envases_cambia);
+	$('#cantidad').on('keyup', cantidad_cambia);
+	$('#facturar_por').on('change', factura_cambia);
+	$('#condicion_pago').on('change', condicion_cambia);
+
+	function cantidad_cambia()
+	{
+		var can=$(this).val()/ $(this).attr('data');
+		if(parseFloat(can)>parseInt(can))
+			can=parseInt(can)+1;
+		$('#no_envases').val( can);
+		total();
+	}
+
+	function envases_cambia()
+	{
+		$('#cantidad').val($(this).val()* $('#cantidad').attr('data')   );
+		total();
+	}
+
+	function factura_cambia()
+	{
+		if( $(this).val()!="cantidad" )
+		{
+			$('#no_envases').attr('readonly',null);
+			$('#cantidad').attr('readonly','readonly');
+		}
+		else
+		{
+			$('#no_envases').attr('readonly','readonly');
+			$('#cantidad').attr('readonly',null);
+		}
+	}
+
+	function condicion_cambia()
+	{
+		var value=$(this).val();
+		var texto;
+		$(this).children('option').each(function(){
+			if ($(this).attr('value')==value )
+			{
+				texto=$(this).text();
+				console.log(texto);
+			}
+		});
+
+		if( texto.indexOf('crédito') !=-1)
+		{
+			$('#estatus').val(0);
+			var dias= parseInt(texto.substring(8));
+			var fecha_inicio= $('.date').val().replace("-","/").replace("-","/");
+			var fecha=new Date(fecha_inicio);
+			fecha.setDate(fecha.getDate()+dias);
+
+			console.log(fecha);
+
+			var dia=fecha.getDate();
+			var mes=fecha.getMonth();
+			var anio=fecha.getFullYear();
+
+			mes++;
+			mes=menordiez(mes);
+			dia=menordiez(dia);
+
+			var fecha_completa=anio+'-'+mes+'-'+dia;
+			console.log(fecha_completa);
+			$('#fecha_vencimiento').val(fecha_completa);
+		}
+	}
+
+	function total()
+	{	
+		var subtotal=$('#no_envases').val()*$('#preciounitario').val();
+		var iva=subtotal*.16;
+		var total=subtotal+iva;
+		$('#subtotal').val(subtotal);
+		$('#iva').val(iva);
+		$('#total').val(total);
+	}
+
+	function request_info_product () {
+		var value=$(this).val();
+
+		var petition=new ajax_petition('POST');
+
+		petition.ajax_conf.url='obtenProducto';
+
+		petition.ajax_conf.data={
+					"_token": $( this ).find( 'input[name=_token]' ).val(),
+					'id':value
+					};
+
+		petition.ajax_conf.success=function(data){
+	
+			if(data.precio[0] != undefined )
+			{
+				$('#preciounitario').val(data.precio[0].precioventa).attr('data',data.precio[0].precioventa);
+				$('#cantidad').val(data.producto.cantidad).attr('data',data.producto.cantidad);
+				$('#no_envases').val("1").attr('readonly','readonly');
+
+				change_select('#presentacion',data.producto.presentacio.nombre);
+				change_select('#facturar_por','Cantidad');
+				$('#descuento').val(0);
+				total();
+			}	
+			else
+			{
+				alert("Verificar que tenga un precio asignado");
+			}
+		}
+
+		petition.execute();
+		
+	}
+
+	
+</script>
 		
 
 

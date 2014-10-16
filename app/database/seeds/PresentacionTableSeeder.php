@@ -9,24 +9,21 @@ class PresentacionTableSeeder extends Seeder {
 		Presentacion::create([
 
 			'id'	=>1,
-			'nombre'=>'costal',
-			'precio'=>'200'
+			'nombre'=>'costal'
 
 			]);
 
 		Presentacion::create([
 
 			'id'	=>2,
-			'nombre'=>'caja',
-			'precio'=>'300'
+			'nombre'=>'caja'
 
 			]);
 
 		Presentacion::create([
 
 			'id'	=>3,
-			'nombre'=>'tambor',
-			'precio'=>'500'
+			'nombre'=>'tambor'
 
 			]);
 	}

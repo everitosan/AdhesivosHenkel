@@ -1,7 +1,7 @@
 <?php namespace Adhesivos\Entities;
 
 class Concepto extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = ['producto','cantidad','descuento','noenvases','facturapor', 'preciounitario'];
 	protected $table = "Concepto";
 
 	public function product()

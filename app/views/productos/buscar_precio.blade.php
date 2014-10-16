@@ -4,82 +4,39 @@
 		<article>
 			<h1>Buscar Precio Producto</h1>
 
-			<div class="medium-12 columns">
-				<dl class="accordion" data-accordion>
-				  <dd class="accordion-navigation">
-				    <a href="#panel1">Buscar Precio Producto</a>
-				    <div id="panel1" class="content">
+				<!--  Tabla de Resultados -->
 
-			<div class="row title">
-				<div class="medium-6 columns">
-					<h3>Precio del producto</h3>
-				</div>
-				<div class="medium-6 columns">
-					<button>Limpiar</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Producto</label>
-					<select name="" id="">
-						<option value=""></option>
-						@foreach($productos as $producto)
-							<option value="{{ $producto->id}}">{{ $producto->nombre}}</option>
-						@endforeach
-					</select>
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-6 columns">
-					<label for="">Desde</label>
-					<input type="date">
-				</div>
-				<div class="medium-6 columns">
-					<label for="">Hasta</label>
-					<input type="date">
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-6 columns">
-					<label for="">Divisa de compra</label>
-					<select name="" id="">
-						<option value=""></option>
-						<option value="pesos">pesos</option>
-						<option value="dlls">dlls</option>
-					</select>
-				</div>
-				<div class="medium-6 columns">
-					<label for="">Precio de compra</label>
-					<input type="text">
-				</div>
-			</div>
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Precio de venta (pesos mexicanos)</label>
-					<input type="text">
-				</div>
-			</div>
+			<table>
+				<tr>
+					<th>Producto</th>
+					<th>Fecha</th>
+					<th>Divisa</th>
+					<th>Predio de Compra</th>
+					<th>Precio de Venta</th>
+					<th>Editar</th>
 
-			<div class="row">
-				<div class="medium-12 columns">
-					<label for="">Coincidencias</label>
-					<select>
-						<option value="any">Cualquiera</option>
-						<option value="all">Todas</option>
-					</select>
-				</div>
-			</div>
+				</tr>
 
-			<div class="row boton">
-				<div class="medium-12 columns">
-					<button>Buscar</button>
-				</div>
-			</div>
+				<tr>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input class="filtro" type="text"> </th>
+					<th> <input type="text" class="filtro"> </th>
+					<th>	</th>
+				</tr>
 
-				</div>
-				</dd>
-				</dl>
-			</div>
+				@foreach($precioproductos as $precioproducto)
+				<tr>
+					<td> {{$precioproducto->product->nombre }} </td>
+					<td> {{$precioproducto->fecha }} </td>
+					<td> {{$precioproducto->divisa }} </td>
+					<td> {{$precioproducto->preciocompra }} </td>
+					<td> {{$precioproducto->precioventa }} </td>
+					<td> <a class="button radius tiny"  href="{{ route('viewprecioproducto',[$precioproducto->id]) }}">Editar</a>  </td>
+				</tr>
+				@endforeach
+			</table>
 
 		</article>
 	</section>	

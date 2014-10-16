@@ -125,6 +125,7 @@ return array(
 		// Vendor
 		'Way\Generators\GeneratorsServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
+		'CanGelis\L4pdf\ServiceProvider'
 
 		//Custom
 		'Adhesivos\Components\FieldServiceProvider',
@@ -196,6 +197,9 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
+
+		//Vendor
+		'PDF' => 'CanGelis\L4pdf\PDFFacade',
 
 		//Custom
 		'Field'				=> 'Adhesivos\Components\Field',
